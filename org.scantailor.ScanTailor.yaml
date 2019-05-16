@@ -29,11 +29,11 @@ modules:
         url: https://github.com/scantailor/scantailor/archive/RELEASE_0_9_12_1.tar.gz
         sha256: ef5d5bdca207ab00701121a32e9b95c7c7353c642b9538b3f9ca040d8d1a5dde
       - type: file
-        path: scantailor.desktop
+        path: org.scantailor.ScanTailor.desktop
       - type: file
-        path: scantailor.appdata.xml
+        path: org.scantailor.ScanTailor.appdata.xml
     buildsystem: cmake-ninja
     post-install:
       - install -Dm0644 resources/appicon.svg /app/share/icons/hicolor/scalable/apps/org.scantailor.ScanTailor.svg
-      - install -Dm0644 scantailor.desktop /app/share/applications/org.scantailor.ScanTailor.desktop
-      - install -Dm0644 scantailor.appdata.xml /app/share/appdata/org.scantailor.ScanTailor.appdata.xml
+      - install -Dm0644 -t /app/share/applications org.scantailor.ScanTailor.desktop
+      - install -Dm0644 -t /app/share/appdata org.scantailor.ScanTailor.appdata.xml
