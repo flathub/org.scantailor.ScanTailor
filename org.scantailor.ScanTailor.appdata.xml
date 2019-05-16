@@ -26,6 +26,20 @@
       A few books processed by Scan Tailor even ended up on Google Books.
     </p>
   </description>
+  <screenshots>
+    <screenshot>
+      <image type="source" width="640" height="452">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187154.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image type="source" width="640" height="452">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187160.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image type="source" width="640" height="452">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187156.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image type="source" width="640" height="452">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187158.jpg</image>
+    </screenshot>
+  </screenshots>
   <launchable type="desktop-id">org.scantailor.ScanTailor.desktop</launchable>
   <url type="bugtracker">https://github.com/scantailor/scantailor/issues</url>
   <url type="homepage">http://scantailor.org/</url>
