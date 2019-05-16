@@ -80,6 +80,6 @@ modules:
       - install -Dm0644 resources/appicon.svg /app/share/icons/hicolor/scalable/apps/org.scantailor.ScanTailor.svg
       - |
         for _size in 16 32 48 64 128 256 512; do
-          convert +set date:create +set date:modify resources/appicon.svg -resize ${_size}x${_size} appicon_${_size}.png || exit 1
+          convert +set date:create +set date:modify -background transparent resources/appicon.svg -resize ${_size}x${_size} appicon_${_size}.png || exit 1
           install -Dm0644 appicon_${_size}.png /app/share/icons/hicolor/${_size}x${_size}/apps/org.scantailor.ScanTailor.png || exit 1
         done
