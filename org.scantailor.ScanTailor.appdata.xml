@@ -3,7 +3,7 @@
   <id>org.scantailor.ScanTailor</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
-  <name>ScanTailor</name>
+  <name>Scan Tailor</name>
   <summary>An interactive post-processing tool for scanned pages.</summary>
   <description>
     <p>
