@@ -6,7 +6,7 @@ command: scantailor
 finish-args:
   - --socket=x11
   - --share=ipc
-  - --filesystem=xdg-documents
+  - --filesystem=host
 modules:
   - shared-modules/qt4/qt4-4.8.7-minimal.json
 
