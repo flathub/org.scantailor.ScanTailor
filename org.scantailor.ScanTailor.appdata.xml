@@ -4,7 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <name>Scan Tailor</name>
-  <summary>An interactive post-processing tool for scanned pages.</summary>
+  <summary>Interactive post-processing tool for scanned pages</summary>
   <description>
     <p>
       Scan Tailor is an interactive post-processing tool for scanned pages.

@@ -2,7 +2,7 @@
 Version=1.0
 Type=Application
 Name=Scan Tailor
-Comment=An interactive post-processing tool for scanned pages.
+Comment=Interactive post-processing tool for scanned pages
 Exec=scantailor %u
 Icon=org.scantailor.ScanTailor
 Categories=Graphics;
