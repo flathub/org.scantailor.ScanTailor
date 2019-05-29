@@ -73,10 +73,13 @@ modules:
         path: org.scantailor.ScanTailor.desktop
       - type: file
         path: org.scantailor.ScanTailor.appdata.xml
+      - type: file
+        path: org.scantailor.ScanTailor.xml
     buildsystem: cmake-ninja
     post-install:
       - install -Dm0644 -t /app/share/applications org.scantailor.ScanTailor.desktop
       - install -Dm0644 -t /app/share/appdata org.scantailor.ScanTailor.appdata.xml
+      - install -Dm0644 -t /app/share/mime/packages org.scantailor.ScanTailor.xml
       - install -Dm0644 resources/appicon.svg /app/share/icons/hicolor/scalable/apps/org.scantailor.ScanTailor.svg
       - |
         for _size in 16 32 48 64 128 256 512; do
