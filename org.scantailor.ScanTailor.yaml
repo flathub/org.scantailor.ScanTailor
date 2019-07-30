@@ -23,47 +23,6 @@ modules:
       - /include
       - /lib/*.a
 
-  - name: imagemagick
-    config-opts:
-      - --disable-dependency-tracking
-      - --enable-static=no
-      - --disable-docs
-      - --without-magick-plus-plus
-      - --without-bzlib
-      - --with-x=no
-      - --without-zlib
-      - --without-zstd
-      - --without-dps
-      - --without-fftw
-      - --without-flif
-      - --without-fpx
-      - --without-djvu
-      - --without-fontconfig
-      - --without-freetype
-      - --without-raqm
-      - --with-gvc=no
-      - --without-heic
-      - --without-jbig
-      - --without-jpeg
-      - --without-lcms
-      - --without-openjp2
-      - --without-lqr
-      - --without-lzma
-      - --without-openexr
-      - --without-pango
-      - --without-raw
-      - --with-rsvg=yes
-      - --without-tiff
-      - --without-webp
-      - --with-wmf=no
-    sources:
-      - type: git
-        url: https://github.com/ImageMagick/ImageMagick
-        tag: 7.0.8-45
-        commit: dd952736f745d7dd9d1e0b8bb20e6384f10da139
-    cleanup:
-      - '*'
-
   - name: scantailor
     sources:
       - type: archive
@@ -83,6 +42,6 @@ modules:
       - install -Dm0644 resources/appicon.svg /app/share/icons/hicolor/scalable/apps/org.scantailor.ScanTailor.svg
       - |
         for _size in 16 32 48 64 128 256 512; do
-          convert +set date:create +set date:modify -background transparent resources/appicon.svg -resize ${_size}x${_size} appicon_${_size}.png || exit 1
+          rsvg-convert --width ${_size} --keep-aspect-ratio --format png --output appicon_${_size}.png resources/appicon.svg || exit 1
           install -Dm0644 appicon_${_size}.png /app/share/icons/hicolor/${_size}x${_size}/apps/org.scantailor.ScanTailor.png || exit 1
         done
