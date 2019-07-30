@@ -35,6 +35,8 @@ modules:
       - type: file
         path: org.scantailor.ScanTailor.xml
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     post-install:
       - install -Dm0644 -t /app/share/applications org.scantailor.ScanTailor.desktop
       - install -Dm0644 -t /app/share/appdata org.scantailor.ScanTailor.appdata.xml
