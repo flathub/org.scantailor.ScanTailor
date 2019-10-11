@@ -39,7 +39,7 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     post-install:
       - install -Dm0644 -t /app/share/applications org.scantailor.ScanTailor.desktop
-      - install -Dm0644 -t /app/share/appdata org.scantailor.ScanTailor.appdata.xml
+      - install -Dm0644 -t /app/share/metainfo org.scantailor.ScanTailor.appdata.xml
       - install -Dm0644 -t /app/share/mime/packages org.scantailor.ScanTailor.xml
       - install -Dm0644 resources/appicon.svg /app/share/icons/hicolor/scalable/apps/org.scantailor.ScanTailor.svg
       - |
