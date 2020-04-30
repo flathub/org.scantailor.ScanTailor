@@ -7,6 +7,14 @@ finish-args:
   - --socket=x11
   - --share=ipc
   - --filesystem=host
+cleanup:
+  - '*.a'
+  - '*.la'
+  - /include
+  - /lib/cmake
+  - /lib/pkgconfig
+  - /share/doc
+  - /share/man
 modules:
   - shared-modules/qt4/qt4-4.8.7-minimal.json
 
@@ -19,9 +27,6 @@ modules:
     build-commands:
       - ./bootstrap.sh --prefix=/app --with-libraries=test,system,signals
       - ./b2 install
-    cleanup:
-      - /include
-      - /lib/*.a
 
   - name: scantailor
     sources:
