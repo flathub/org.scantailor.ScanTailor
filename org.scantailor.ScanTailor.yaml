@@ -28,6 +28,17 @@ modules:
       - ./bootstrap.sh --prefix=/app --with-libraries=test,system,signals
       - ./b2 -j "${FLATPAK_BUILDER_N_JOBS}" install
 
+  # libtiff with JPEG support
+  # https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1117
+  - name: libtiff
+    buildsystem: cmake-ninja
+    cleanup:
+       - '*.so'
+    sources:
+       - type: git
+         url: https://gitlab.com/libtiff/libtiff.git
+         tag: v4.2.0
+
   - name: scantailor
     sources:
       - type: archive
