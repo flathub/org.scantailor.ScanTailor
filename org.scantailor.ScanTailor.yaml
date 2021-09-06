@@ -37,7 +37,8 @@ modules:
     sources:
        - type: git
          url: https://gitlab.com/libtiff/libtiff.git
-         tag: v4.2.0
+         tag: v4.3.0
+         commit: d21dcc67d0d3f4686ee989a085ad2bea9c58259d
 
   - name: scantailor
     sources:
