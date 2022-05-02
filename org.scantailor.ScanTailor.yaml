@@ -39,12 +39,23 @@ modules:
         url: https://gitlab.com/libtiff/libtiff.git
         tag: v4.1.0
         commit: e0d707dc1524d8c0e20f03396f234e0f1b07b3f4
+        x-checker-data:
+          type: json
+          # Check version in repository freedesktop-sdk/freedesktop-sdk branch release/20.08
+          url: https://gitlab.com/api/v4/projects/4339844/repository/files/elements%2Fcomponents%2Flibtiff.bst?ref=release/20.08
+          tag-query: '.content | @base64d | capture("(^|\\n)\\s*ref:\\s+(?<tag>[^\\s]+)-0-g(?<commit>[0-9a-z]+)").tag'
+          commit-query: '.content | @base64d | capture("(^|\\n)\\s*ref:\\s+(?<tag>[^\\s]+)-0-g(?<commit>[0-9a-z]+)").commit'
 
   - name: scantailor
     sources:
       - type: archive
-        url: https://github.com/scantailor/scantailor/archive/RELEASE_0_9_12_1.tar.gz
+        url: https://github.com/scantailor/scantailor/archive/refs/tags/RELEASE_0_9_12_1.tar.gz
         sha256: ef5d5bdca207ab00701121a32e9b95c7c7353c642b9538b3f9ca040d8d1a5dde
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/scantailor/scantailor/releases/latest
+          version-query: '.tag_name'
+          url-query: '"https://github.com/scantailor/scantailor/archive/refs/tags/" + $version + ".tar.gz"'
       - type: file
         path: org.scantailor.ScanTailor.desktop
       - type: file
