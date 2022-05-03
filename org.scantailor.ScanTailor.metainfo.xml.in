@@ -44,7 +44,7 @@
   <url type="bugtracker">https://github.com/scantailor/scantailor/issues</url>
   <url type="homepage">http://scantailor.org/</url>
   <releases>
-    <release version="0.9.12.1" date="2016-05-02" />
+    <release version="{RELEASE_VERSION}" date="{RELEASE_DATE}" />
   </releases>
   <content_rating type="oars-1.1" />
 </component>

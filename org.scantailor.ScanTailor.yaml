@@ -48,26 +48,32 @@ modules:
 
   - name: scantailor
     sources:
-      - type: archive
-        url: https://github.com/scantailor/scantailor/archive/refs/tags/RELEASE_0_9_12_1.tar.gz
-        sha256: ef5d5bdca207ab00701121a32e9b95c7c7353c642b9538b3f9ca040d8d1a5dde
+      - type: git
+        url: https://github.com/scantailor/scantailor.git
+        tag: RELEASE_0_9_12_1
+        commit: 3ad43849bd94cd1056303e749524c45e21febeca
         x-checker-data:
           type: json
           url: https://api.github.com/repos/scantailor/scantailor/releases/latest
-          version-query: '.tag_name'
-          url-query: '"https://github.com/scantailor/scantailor/archive/refs/tags/" + $version + ".tar.gz"'
+          tag-query: '.tag_name'
       - type: file
         path: org.scantailor.ScanTailor.desktop
       - type: file
-        path: org.scantailor.ScanTailor.metainfo.xml
+        path: org.scantailor.ScanTailor.metainfo.xml.in
       - type: file
         path: org.scantailor.ScanTailor.xml
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     post-install:
+      - |
+        # Set version and release data in our custom Metainfo and install it
+        set -e
+        version="$(git describe --tags --exact-match | sed -e 's/^RELEASE_//' -e 's/_/./g')"
+        date="$(git log -1 --date=short --format=%cd)"
+        sed -e "s/{RELEASE_VERSION}/${version}/g" -e "s/{RELEASE_DATE}/${date}/g" org.scantailor.ScanTailor.metainfo.xml.in >org.scantailor.ScanTailor.metainfo.xml
+        install -Dm0644 -t /app/share/metainfo org.scantailor.ScanTailor.metainfo.xml
       - install -Dm0644 -t /app/share/applications org.scantailor.ScanTailor.desktop
-      - install -Dm0644 -t /app/share/metainfo org.scantailor.ScanTailor.metainfo.xml
       - install -Dm0644 -t /app/share/mime/packages org.scantailor.ScanTailor.xml
       - install -Dm0644 resources/appicon.svg /app/share/icons/hicolor/scalable/apps/org.scantailor.ScanTailor.svg
       - |
