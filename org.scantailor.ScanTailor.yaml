@@ -51,11 +51,6 @@ modules:
       - type: archive
         url: https://github.com/scantailor/scantailor/archive/refs/tags/RELEASE_0_9_12_1.tar.gz
         sha256: ef5d5bdca207ab00701121a32e9b95c7c7353c642b9538b3f9ca040d8d1a5dde
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/scantailor/scantailor/releases/latest
-          version-query: '.tag_name'
-          url-query: '"https://github.com/scantailor/scantailor/archive/refs/tags/" + $version + ".tar.gz"'
       - type: file
         path: org.scantailor.ScanTailor.desktop
       - type: file
