@@ -1,6 +1,6 @@
 app-id: org.scantailor.ScanTailor
 runtime: org.freedesktop.Platform
-runtime-version: '20.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 command: scantailor
 finish-args:
@@ -27,24 +27,6 @@ modules:
     build-commands:
       - ./bootstrap.sh --prefix=/app --with-libraries=test,system,signals
       - ./b2 -j "${FLATPAK_BUILDER_N_JOBS}" install
-
-  # libtiff with JPEG support
-  # https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1117
-  - name: libtiff
-    buildsystem: cmake-ninja
-    cleanup:
-       - '*.so'
-    sources:
-      - type: git
-        url: https://gitlab.com/libtiff/libtiff.git
-        tag: v4.1.0
-        commit: e0d707dc1524d8c0e20f03396f234e0f1b07b3f4
-        x-checker-data:
-          type: json
-          # Check version in repository freedesktop-sdk/freedesktop-sdk branch release/20.08
-          url: https://gitlab.com/api/v4/projects/4339844/repository/files/elements%2Fcomponents%2Flibtiff.bst?ref=release/20.08
-          tag-query: '.content | @base64d | capture("(^|\\n)\\s*ref:\\s+(?<tag>[^\\s]+)-0-g(?<commit>[0-9a-z]+)").tag'
-          commit-query: '.content | @base64d | capture("(^|\\n)\\s*ref:\\s+(?<tag>[^\\s]+)-0-g(?<commit>[0-9a-z]+)").commit'
 
   - name: scantailor
     sources:
