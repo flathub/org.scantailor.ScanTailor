@@ -44,6 +44,8 @@ modules:
         path: org.scantailor.ScanTailor.metainfo.xml.in
       - type: file
         path: org.scantailor.ScanTailor.xml
+      - type: patch
+        path: scantailor-square-appicon.patch
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
