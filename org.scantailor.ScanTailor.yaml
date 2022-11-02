@@ -37,7 +37,7 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/scantailor/scantailor/releases/latest
-          tag-query: '.tag_name'
+          tag-query: .tag_name
       - type: file
         path: org.scantailor.ScanTailor.desktop
       - type: file
