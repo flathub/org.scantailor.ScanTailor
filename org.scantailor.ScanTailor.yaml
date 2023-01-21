@@ -32,8 +32,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/scantailor/scantailor.git
-        tag: RELEASE_0_9_12_1
-        commit: 3ad43849bd94cd1056303e749524c45e21febeca
+        tag: RELEASE_0_9_12
+        commit: fb8e8fe178a13628b8ed2bcbb7cbe4e42149845f
         x-checker-data:
           type: json
           url: https://api.github.com/repos/scantailor/scantailor/releases/latest
