@@ -16,7 +16,7 @@ cleanup:
   - /share/doc
   - /share/man
 modules:
-  - shared-modules/qt4/qt4-4.8.7-minimal.json
+  - qt4/qt4-4.8.7-minimal.json
 
   - name: boost
     sources:
