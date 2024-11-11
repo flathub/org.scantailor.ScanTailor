@@ -1,6 +1,6 @@
 app-id: org.scantailor.ScanTailor
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: scantailor
 finish-args:
@@ -60,8 +60,3 @@ modules:
       - install -Dm0644 -t /app/share/applications org.scantailor.ScanTailor.desktop
       - install -Dm0644 -t /app/share/mime/packages org.scantailor.ScanTailor.xml
       - install -Dm0644 resources/appicon.svg /app/share/icons/hicolor/scalable/apps/org.scantailor.ScanTailor.svg
-      - |
-        for res in 16 32 48 64 128 256 512; do
-          rsvg-convert --width ${res} --keep-aspect-ratio --format png --output appicon_${res}.png resources/appicon.svg || exit 1
-          install -Dm0644 appicon_${res}.png /app/share/icons/hicolor/${res}x${res}/apps/org.scantailor.ScanTailor.png || exit 1
-        done

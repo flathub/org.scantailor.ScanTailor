@@ -5,6 +5,7 @@
   <project_license>GPL-3.0-or-later</project_license>
   <name>Scan Tailor</name>
   <summary>Interactive post-processing tool for scanned pages</summary>
+  <developer_name>ScanTailor developers</developer_name>
   <description>
     <p>
       Scan Tailor is an interactive post-processing tool for scanned pages.
@@ -27,17 +28,17 @@
     </p>
   </description>
   <screenshots>
-    <screenshot>
-      <image type="source" width="640" height="452">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187154.jpg</image>
+    <screenshot type="default">
+      <image type="source">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187154.jpg</image>
     </screenshot>
     <screenshot>
-      <image type="source" width="640" height="452">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187160.jpg</image>
+      <image type="source">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187160.jpg</image>
     </screenshot>
     <screenshot>
-      <image type="source" width="640" height="452">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187156.jpg</image>
+      <image type="source">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187156.jpg</image>
     </screenshot>
     <screenshot>
-      <image type="source" width="640" height="452">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187158.jpg</image>
+      <image type="source">https://a.fsdn.com/con/app/proj/scantailor/screenshots/187158.jpg</image>
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">org.scantailor.ScanTailor.desktop</launchable>
