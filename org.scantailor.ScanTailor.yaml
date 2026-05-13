@@ -1,6 +1,6 @@
 app-id: org.scantailor.ScanTailor
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: scantailor
 finish-args:
@@ -29,34 +29,26 @@ modules:
       - ./b2 -j "${FLATPAK_BUILDER_N_JOBS}" install
 
   - name: scantailor
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    post-install:
+      - install -Dm0644 org.scantailor.ScanTailor.metainfo.xml -t /app/share/metainfo/
+      - install -Dm0644 org.scantailor.ScanTailor.desktop -t /app/share/applications/
+      - install -Dm0644 org.scantailor.ScanTailor.xml -t /app/share/mime/packages/
+      - install -Dm0644 resources/appicon.svg /app/share/icons/hicolor/scalable/apps/org.scantailor.ScanTailor.svg
     sources:
       - type: git
         url: https://github.com/scantailor/scantailor.git
         tag: RELEASE_0_9_12_1
         commit: 3ad43849bd94cd1056303e749524c45e21febeca
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/scantailor/scantailor/releases/latest
-          tag-query: .tag_name
       - type: file
         path: org.scantailor.ScanTailor.desktop
       - type: file
-        path: org.scantailor.ScanTailor.metainfo.xml.in
+        path: org.scantailor.ScanTailor.metainfo.xml
       - type: file
         path: org.scantailor.ScanTailor.xml
       - type: patch
         path: scantailor-square-appicon.patch
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    post-install:
-      - |
-        # Set version and release data in our custom Metainfo and install it
-        set -e
-        version="$(git describe --tags --exact-match | sed -e 's/^RELEASE_//' -e 's/_/./g')"
-        date="$(git log -1 --date=short --format=%cd)"
-        sed -e "s/{RELEASE_VERSION}/${version}/g" -e "s/{RELEASE_DATE}/${date}/g" org.scantailor.ScanTailor.metainfo.xml.in >org.scantailor.ScanTailor.metainfo.xml
-        install -Dm0644 -t /app/share/metainfo org.scantailor.ScanTailor.metainfo.xml
-      - install -Dm0644 -t /app/share/applications org.scantailor.ScanTailor.desktop
-      - install -Dm0644 -t /app/share/mime/packages org.scantailor.ScanTailor.xml
-      - install -Dm0644 resources/appicon.svg /app/share/icons/hicolor/scalable/apps/org.scantailor.ScanTailor.svg
+
