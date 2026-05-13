@@ -43,9 +43,11 @@
   </screenshots>
   <launchable type="desktop-id">org.scantailor.ScanTailor.desktop</launchable>
   <url type="bugtracker">https://github.com/scantailor/scantailor/issues</url>
-  <url type="homepage">http://scantailor.org/</url>
+  <url type="homepage">https://web.archive.org/web/20200731184134/http://scantailor.org/</url>
   <releases>
-    <release version="{RELEASE_VERSION}" date="{RELEASE_DATE}" />
+    <release version="0.9.12.1" date="2016-05-02">
+      <url>https://github.com/scantailor/scantailor/releases/tag/RELEASE_0_9_12_1</url>
+    </release>
   </releases>
   <content_rating type="oars-1.1" />
 </component>
